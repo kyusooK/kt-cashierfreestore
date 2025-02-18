@@ -27,7 +27,6 @@ public class AuthorityController {
     )
     public Authority updateAuthority(
         @PathVariable(value = "id") Long id,
-        @RequestBody UpdateAuthorityCommand updateAuthorityCommand,
         HttpServletRequest request,
         HttpServletResponse response
     ) throws Exception {
@@ -38,7 +37,7 @@ public class AuthorityController {
 
         optionalAuthority.orElseThrow(() -> new Exception("No Entity Found"));
         Authority authority = optionalAuthority.get();
-        authority.updateAuthority(updateAuthorityCommand);
+        authority.updateAuthority();
 
         authorityRepository.save(authority);
         return authority;
