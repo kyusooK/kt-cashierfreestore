@@ -47,30 +47,16 @@ public class Authority {
 
     //<<< Clean Arch / Port Method
     public static void createBasicAuthority(UserRegistered userRegistered) {
-        //implement business logic here:
 
-        /** Example 1:  new item 
         Authority authority = new Authority();
+        authority.setUserName(userRegistered.getUserName());
+        authority.setRank(userRegistered.getRank());
+        authority.setDepartment(userRegistered.getDepartment());
+
         repository().save(authority);
 
         BasicAuthorityCreated basicAuthorityCreated = new BasicAuthorityCreated(authority);
         basicAuthorityCreated.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
-        
-
-        repository().findById(userRegistered.get???()).ifPresent(authority->{
-            
-            authority // do something
-            repository().save(authority);
-
-            BasicAuthorityCreated basicAuthorityCreated = new BasicAuthorityCreated(authority);
-            basicAuthorityCreated.publishAfterCommit();
-
-         });
-        */
-
     }
     //>>> Clean Arch / Port Method
 
