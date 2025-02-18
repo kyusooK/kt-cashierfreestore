@@ -53,22 +53,10 @@ public class User {
 
     //<<< Clean Arch / Port Method
     public static void updateUserAuthority(AuthorityUpdated authorityUpdated) {
-        //implement business logic here:
 
-        /** Example 1:  new item 
-        User user = new User();
-        repository().save(user);
-
-        UserAuthorityUpdated userAuthorityUpdated = new UserAuthorityUpdated(user);
-        userAuthorityUpdated.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
-        
-
-        repository().findById(authorityUpdated.get???()).ifPresent(user->{
+        repository().findById(authorityUpdated.getId()).ifPresent(user->{
             
-            user // do something
+            user.setAvailableTime(authorityUpdated.getAvailableTime());
             repository().save(user);
 
             UserAuthorityUpdated userAuthorityUpdated = new UserAuthorityUpdated(user);

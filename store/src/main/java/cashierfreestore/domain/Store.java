@@ -19,67 +19,46 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 //<<< DDD / Aggregate Root
 public class Store  {
 
-
-    
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    
-    
-    
-    
     private Long id;
-    
-    
-    
     
     private String userName;
     
-    
-    
-    
     private String employeeIdCard;
-    
-    
-    
     
     private Date enteringAt;
     
-    
-    
-    
     private Date exitAt;
-    
-    
-    
     
     private Date availableStartAt;
     
-    
-    
-    
     private Date availableEndAt;
-    
-    
-    
+   
     @Embedded
     private UserId userId;
-    
-    
     
     @Enumerated(EnumType.STRING)
     private EnterStatus enterStatus;
     
-    
-    
-    
     private String availableTime;
-
 
     public static StoreRepository repository(){
         StoreRepository storeRepository = StoreApplication.applicationContext.getBean(StoreRepository.class);
         return storeRepository;
     }
 
+    //<<< Clean Arch / Port Method
+    public static void registerStoreAuthority(UserAuthorityUpdated userAuthorityUpdated){
+        
+        
+        Store store = new Store();
+        repository().save(store);
+
+        StoreAuthorityRegistered storeAuthorityRegistered = new StoreAuthorityRegistered(store);
+        storeAuthorityRegistered.publishAfterCommit();
+    }
+    //>>> Clean Arch / Port Method
 
 
 //<<< Clean Arch / Port Method
@@ -109,37 +88,6 @@ public class Store  {
 
         StoreExited storeExited = new StoreExited(this);
         storeExited.publishAfterCommit();
-    }
-//>>> Clean Arch / Port Method
-
-//<<< Clean Arch / Port Method
-    public static void registerStoreAuthority(UserAuthorityUpdated userAuthorityUpdated){
-        
-        //implement business logic here:
-        
-        /** Example 1:  new item 
-        Store store = new Store();
-        repository().save(store);
-
-        StoreAuthorityRegistered storeAuthorityRegistered = new StoreAuthorityRegistered(store);
-        storeAuthorityRegistered.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
-        
-
-        repository().findById(userAuthorityUpdated.get???()).ifPresent(store->{
-            
-            store // do something
-            repository().save(store);
-
-            StoreAuthorityRegistered storeAuthorityRegistered = new StoreAuthorityRegistered(store);
-            storeAuthorityRegistered.publishAfterCommit();
-
-         });
-        */
-
-        
     }
 //>>> Clean Arch / Port Method
 

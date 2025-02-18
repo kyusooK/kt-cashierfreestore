@@ -54,7 +54,13 @@ public class Authority {
     public void updateAuthority() {
         repository().findById(this.getId()).ifPresent(authority->{
             if(authority.getDepartment() == "보안" || authority.getDepartment() == "마케팅" authority.getDepartment() == "재고"){
-                authority.setAvailableTime("")
+                authority.setAvailableTime("상시 가능")
+            }else{
+                if(authority.getRank() == "대표" authority.getRank() == "이사"){
+                    authority.setAvailableTime("상시 가능")
+                }else{
+                    authority.setAvailableTime("18:00")
+                }
             }
         });
 
