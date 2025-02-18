@@ -51,7 +51,7 @@ mvn spring-boot:run
 ```
 - store
 ```
- http :8088/stores id="id"userName="userName"employeeIdCard="employeeIDCard"enteringAt="enteringAt"exitAt="exitAt"availableStartAt="availableStartAt"availableEndAt="availableEndAt"UserId := '{"id": 0}'EnterStatus = "ENTERED"
+ http :8088/stores id="id"userName="userName"employeeIdCard="employeeIDCard"enteringAt="enteringAt"exitAt="exitAt"availableStartAt="availableStartAt"availableEndAt="availableEndAt"UserId := '{"id": 0}'EnterStatus = "ENTERED"availableTime="availableTime"
 ```
 - authority
 ```
