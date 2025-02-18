@@ -37,6 +37,10 @@ export default {
           link: "/users",
       },
       {
+          text: "사용자조회",
+          link: "/getUsers",
+      },
+      {
           text: "매장",
           link: "/stores",
       },
