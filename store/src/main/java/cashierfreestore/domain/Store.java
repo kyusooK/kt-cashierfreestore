@@ -68,6 +68,11 @@ public class Store  {
     
     @Enumerated(EnumType.STRING)
     private EnterStatus enterStatus;
+    
+    
+    
+    
+    private String availableTime;
 
 
     public static StoreRepository repository(){

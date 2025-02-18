@@ -6,6 +6,7 @@
         <Date label="퇴장시간" v-model="value.exitAt" :editMode="editMode"/>
         <Date label="입장가능시간" v-model="value.availableStartAt" :editMode="editMode"/>
         <Date label="이용종료시간" v-model="value.availableEndAt" :editMode="editMode"/>
+        <String label="이용가능시간" v-model="value.availableTime" :editMode="editMode"/>
         <UserId offline label="userId" v-model="value.userId" :editMode="editMode" @change="change"/>
         <EnterStatus offline label="출입상태" v-model="value.enterStatus" :editMode="editMode" @change="change"/>
 

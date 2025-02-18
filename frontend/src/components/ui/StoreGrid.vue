@@ -51,6 +51,7 @@
                         <th>이용종료시간</th>
                         <th>userId</th>
                         <th>출입상태</th>
+                        <th>이용가능시간</th>
                         <th>사용자</th>
                         </tr>
                     </thead>
@@ -64,6 +65,7 @@
                             <td class="whitespace-nowrap" label="입장가능시간">{{ val.availableStartAt }}</td>
                             <td class="whitespace-nowrap" label="이용종료시간">{{ val.availableEndAt }}</td>
                             <td class="whitespace-nowrap" label="출입상태">{{ val.enterStatus }}</td>
+                            <td class="whitespace-nowrap" label="이용가능시간">{{ val.availableTime }}</td>
                             <td class="whitespace-nowrap" label="사용자">
                                 <UserId :editMode="editMode" v-model="val.userId"></UserId>
                             </td>
@@ -131,6 +133,7 @@
                             <Date label="퇴장시간" v-model="selectedRow.exitAt" :editMode="true"/>
                             <Date label="입장가능시간" v-model="selectedRow.availableStartAt" :editMode="true"/>
                             <Date label="이용종료시간" v-model="selectedRow.availableEndAt" :editMode="true"/>
+                            <String label="이용가능시간" v-model="selectedRow.availableTime" :editMode="true"/>
                             <UserId offline label="userId" v-model="selectedRow.userId" :editMode="true"/>
                             <EnterStatus offline label="출입상태" v-model="selectedRow.enterStatus" :editMode="true"/>
                             <v-divider class="border-opacity-100 my-divider"></v-divider>
