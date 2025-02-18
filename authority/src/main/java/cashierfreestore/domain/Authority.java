@@ -36,16 +36,6 @@ public class Authority {
     }
 
     //<<< Clean Arch / Port Method
-    public void updateAuthority() {
-        //implement business logic here:
-
-        AuthorityUpdated authorityUpdated = new AuthorityUpdated(this);
-        authorityUpdated.publishAfterCommit();
-    }
-
-    //>>> Clean Arch / Port Method
-
-    //<<< Clean Arch / Port Method
     public static void createBasicAuthority(UserRegistered userRegistered) {
 
         Authority authority = new Authority();
@@ -58,6 +48,20 @@ public class Authority {
         BasicAuthorityCreated basicAuthorityCreated = new BasicAuthorityCreated(authority);
         basicAuthorityCreated.publishAfterCommit();
     }
+    //>>> Clean Arch / Port Method
+
+    //<<< Clean Arch / Port Method
+    public void updateAuthority() {
+        repository().findById(this.getId()).ifPresent(authority->{
+            if(authority.getDepartment() == "보안" || authority.getDepartment() == "마케팅" authority.getDepartment() == "재고"){
+                authority.setAvailableTime("")
+            }
+        });
+
+        AuthorityUpdated authorityUpdated = new AuthorityUpdated(this);
+        authorityUpdated.publishAfterCommit();
+    }
+
     //>>> Clean Arch / Port Method
 
 }
