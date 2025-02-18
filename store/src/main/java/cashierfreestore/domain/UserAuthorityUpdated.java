@@ -11,4 +11,6 @@ public class UserAuthorityUpdated extends AbstractEvent {
 
     private Long id;
     private String availableTime;
+    private String userName;
+    private String employeeIdCard;
 }

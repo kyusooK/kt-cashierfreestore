@@ -14,6 +14,7 @@ public class StoreAuthorityRegistered extends AbstractEvent {
     private Long id;
     private String userName;
     private String employeeIdCard;
+    private String availableTime;
 
     public StoreAuthorityRegistered(Store aggregate) {
         super(aggregate);
