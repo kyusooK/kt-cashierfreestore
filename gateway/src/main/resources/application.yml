@@ -1,0 +1,84 @@
+server:
+  port: 8088
+
+---
+
+spring:
+  profiles: default
+  cloud:
+    gateway:
+#<<< API Gateway / Routes
+      routes:
+        - id: user
+          uri: http://localhost:8082
+          predicates:
+            - Path=/users/**, /getUsers/**
+        - id: store
+          uri: http://localhost:8083
+          predicates:
+            - Path=/stores/**, 
+        - id: authority
+          uri: http://localhost:8084
+          predicates:
+            - Path=/authorities/**, 
+        - id: recording
+          uri: http://localhost:8085
+          predicates:
+            - Path=/storeUsings/**, /authorityChanings/**, /warnings/**, 
+        - id: frontend
+          uri: http://localhost:8080
+          predicates:
+            - Path=/**
+#>>> API Gateway / Routes
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "*"
+            allowedMethods:
+              - "*"
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
+
+
+---
+
+spring:
+  profiles: docker
+  cloud:
+    gateway:
+      routes:
+        - id: user
+          uri: http://user:8080
+          predicates:
+            - Path=/users/**, 
+        - id: store
+          uri: http://store:8080
+          predicates:
+            - Path=/stores/**, 
+        - id: authority
+          uri: http://authority:8080
+          predicates:
+            - Path=/authorities/**, 
+        - id: recording
+          uri: http://recording:8080
+          predicates:
+            - Path=/storeUsings/**, /authorityChanings/**, /warnings/**, 
+        - id: frontend
+          uri: http://frontend:8080
+          predicates:
+            - Path=/**
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "*"
+            allowedMethods:
+              - "*"
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
+
+server:
+  port: 8080
