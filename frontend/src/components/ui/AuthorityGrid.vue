@@ -18,15 +18,9 @@
                 <v-btn style="margin-left: 5px;" @click="openEditDialog()" class="contrast-primary-text" small color="primary">
                     <v-icon small>mdi-pencil</v-icon>수정
                 </v-btn>
-                <v-btn style="margin-left: 5px;" @click="updateAuthorityDialog = true" class="contrast-primary-text" small color="primary" :disabled="!hasRole('Admin')">
+                <v-btn style="margin-left: 5px;" @click="updateAuthority" class="contrast-primary-text" small color="primary" :disabled="!hasRole('Admin')">
                     <v-icon small>mdi-minus-circle-outline</v-icon>권한 변경
                 </v-btn>
-                <v-dialog v-model="updateAuthorityDialog" width="500">
-                    <UpdateAuthority
-                        @closeDialog="updateAuthorityDialog = false"
-                        @updateAuthority="updateAuthority"
-                    ></UpdateAuthority>
-                </v-dialog>
             </div>
             <div class="mb-5 text-lg font-bold"></div>
             <div class="table-responsive">
@@ -140,16 +134,14 @@ export default {
     },
     data: () => ({
         path: 'authorities',
-        updateAuthorityDialog: false,
     }),
     watch: {
     },
     methods:{
-        updateAuthority(params){
+        updateAuthority(){
             try{
-                this.repository.invoke(this.getSelectedItem(), "updateAuthority", params)
+                this.repository.invoke(this.getSelectedItem(), "updateAuthority", null)
                 this.$EventBus.$emit('show-success','update authority 성공적으로 처리되었습니다.')
-                this.updateAuthorityDialog = false
             }catch(e){
                 console.log(e)
             }

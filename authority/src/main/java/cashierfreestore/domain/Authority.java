@@ -36,7 +36,7 @@ public class Authority {
     }
 
     //<<< Clean Arch / Port Method
-    public void updateAuthority(UpdateAuthorityCommand updateAuthorityCommand) {
+    public void updateAuthority() {
         //implement business logic here:
 
         AuthorityUpdated authorityUpdated = new AuthorityUpdated(this);

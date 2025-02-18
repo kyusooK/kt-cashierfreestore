@@ -5,7 +5,4 @@ import java.util.*;
 import lombok.Data;
 
 @Data
-public class UpdateAuthorityCommand {
-
-    private String availableTime;
-}
+public class UpdateAuthorityCommand {}

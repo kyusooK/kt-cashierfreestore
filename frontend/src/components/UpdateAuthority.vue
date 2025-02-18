@@ -6,7 +6,6 @@
         </v-card-title>
 
         <v-card-text>
-            <String label="AvailableTime" v-model="value.availableTime" :editMode="editMode"/>
         </v-card-text>
 
         <v-card-actions>
@@ -43,7 +42,6 @@ export default {
         value: {},
     }),
     created() {
-        this.value.availableTime = '';
     },
     watch: {
     },
