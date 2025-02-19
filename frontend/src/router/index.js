@@ -8,27 +8,27 @@ const router = createRouter({
       component: () => import('../components/pages/Index.vue'),
     },
     {
-      path: '/users',
+      path: '/users/users',
       component: () => import('../components/ui/UserGrid.vue'),
     },
     {
-      path: '/stores',
+      path: '/stores/stores',
       component: () => import('../components/ui/StoreGrid.vue'),
     },
     {
-      path: '/authorities',
+      path: '/authorities/authorities',
       component: () => import('../components/ui/AuthorityGrid.vue'),
     },
     {
-      path: '/storeUsings',
+      path: '/recordings/storeUsings',
       component: () => import('../components/ui/StoreUsingGrid.vue'),
     },
     {
-      path: '/authorityChanings',
+      path: '/recordings/authorityChanings',
       component: () => import('../components/ui/AuthorityChaningGrid.vue'),
     },
     {
-      path: '/warnings',
+      path: '/recordings/warnings',
       component: () => import('../components/ui/WarningGrid.vue'),
     },
   ],

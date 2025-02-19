@@ -13,6 +13,7 @@ public class AuthorityUpdated extends AbstractEvent {
 
     private Long id;
     private String availableTime;
+    private String userName;
 
     public AuthorityUpdated(Authority aggregate) {
         super(aggregate);

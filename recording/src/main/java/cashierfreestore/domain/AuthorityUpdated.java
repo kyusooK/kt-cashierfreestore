@@ -11,4 +11,5 @@ public class AuthorityUpdated extends AbstractEvent {
 
     private Long id;
     private String availableTime;
+    private String userName;
 }
