@@ -53,6 +53,11 @@ public class Store  {
         
         
         Store store = new Store();
+        // store.setUserId()
+        store.setUserName(userAuthorityUpdated.getUserName());
+        store.setEmployeeIdCard(userAuthorityUpdated.getEmployeeIdCard());
+        store.setAvailableTime(userAuthorityUpdated.getAvailableTime());
+
         repository().save(store);
 
         StoreAuthorityRegistered storeAuthorityRegistered = new StoreAuthorityRegistered(store);
@@ -64,15 +69,8 @@ public class Store  {
 //<<< Clean Arch / Port Method
     public void enterStore(EnterStoreCommand enterStoreCommand){
         
-        //implement business logic here:
         
-
-        cashierfreestore.external.StoreQuery storeQuery = new cashierfreestore.external.StoreQuery();
-        // storeQuery.set??()        
-          = StoreApplication.applicationContext
-            .getBean(cashierfreestore.external.Service.class)
-            .store(storeQuery);
-
+        
         StoreEntered storeEntered = new StoreEntered(this);
         storeEntered.publishAfterCommit();
         StoreEntered storeEntered = new StoreEntered(this);
