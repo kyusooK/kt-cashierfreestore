@@ -1,16 +1,13 @@
 package cashierfreestore.domain;
 
 import java.time.LocalTime;
+import cashierfreestore.domain.StoreAuthorityRegistered;
+import cashierfreestore.domain.AnomalyDetected;
+import cashierfreestore.StoreApplication;
+import javax.persistence.*;
+import java.util.List;
+import lombok.Data;
 import java.util.Date;
-
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 import cashierfreestore.StoreApplication;
 import lombok.Data;

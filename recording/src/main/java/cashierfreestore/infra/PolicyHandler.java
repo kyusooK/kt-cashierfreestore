@@ -49,14 +49,16 @@ public class PolicyHandler {
 
     @StreamListener(
         value = KafkaProcessor.INPUT,
-        condition = "headers['type']=='이상감지됨'"
+        condition = "headers['type']=='AnomalyDetected'"
     )
-    public void whenever이상감지됨_RecordWarningSituation(
-        @Payload 이상감지됨 이상감지됨
+    public void wheneverAnomalyDetected_RecordWarningSituation(
+        @Payload AnomalyDetected anomalyDetected
     ) {
-        이상감지됨 event = 이상감지됨;
+        AnomalyDetected event = anomalyDetected;
         System.out.println(
-            "\n\n##### listener RecordWarningSituation : " + 이상감지됨 + "\n\n"
+            "\n\n##### listener RecordWarningSituation : " +
+            anomalyDetected +
+            "\n\n"
         );
 
         // Sample Logic //
