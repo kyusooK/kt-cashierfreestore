@@ -97,8 +97,8 @@
                     </v-toolbar>
                     <v-card-text>
                         <div>
-                            <String label="입장시간" v-model="selectedRow.enteringDate" :editMode="true"/>
-                            <String label="퇴장시간" v-model="selectedRow.exitDate" :editMode="true"/>
+                            <Date label="입장시간" v-model="selectedRow.enteringDate" :editMode="true"/>
+                            <Date label="퇴장시간" v-model="selectedRow.exitDate" :editMode="true"/>
                             <StoreId offline label="storeId" v-model="selectedRow.storeId" :editMode="true"/>
                             <v-divider class="border-opacity-100 my-divider"></v-divider>
                             <v-layout row justify-end>
