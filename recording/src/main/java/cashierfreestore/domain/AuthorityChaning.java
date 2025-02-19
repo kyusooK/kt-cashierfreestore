@@ -39,6 +39,7 @@ public class AuthorityChaning {
         AuthorityChaning authorityChaning = new AuthorityChaning();
 
         authorityChaning.setChangingAuth(authorityUpdated.getUserName() + "의 매장 이용 가능 시간이 변경되었습니다. 변경내역: " + authorityUpdated.getAvailableTime());
+        authorityChaning.setAuthorityId(new AuthorityId(authorityUpdated.getId()));
         repository().save(authorityChaning);
 
         ChangedAuthorityRecorded changedAuthorityRecorded = new ChangedAuthorityRecorded(authorityChaning);

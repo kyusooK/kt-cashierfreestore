@@ -31,34 +31,13 @@ public class Warning {
 
     //<<< Clean Arch / Port Method
     public static void recordWarningSituation(AnomalyDetected anomalyDetected) {
-        //implement business logic here:
 
-        /** Example 1:  new item 
         Warning warning = new Warning();
-        warning.setWarningRecord("cctv에 의해 이상상황이 감지되었습니다. cctv를 확인 바랍니다.");
+        warning.setWarningRecord("cctv에 의해 이상상황이 감지되었습니다 확인 바랍니다.");
         repository().save(warning);
 
         WarningSituationRecorded warningSituationRecorded = new WarningSituationRecorded(warning);
         warningSituationRecorded.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
-        
-        // if anomalyDetected.userId exists, use it
-        
-        // ObjectMapper mapper = new ObjectMapper();
-        // Map<Long, Object> storeMap = mapper.convertValue(anomalyDetected.getUserId(), Map.class);
-
-        repository().findById(anomalyDetected.get???()).ifPresent(warning->{
-            
-            warning // do something
-            repository().save(warning);
-
-            WarningSituationRecorded warningSituationRecorded = new WarningSituationRecorded(warning);
-            warningSituationRecorded.publishAfterCommit();
-
-         });
-        */
 
     }
 
@@ -69,32 +48,13 @@ public class Warning {
     ) {
         //implement business logic here:
 
-        /** Example 1:  new item 
         Warning warning = new Warning();
+        warning.setWarningRecord("무단 입장이 시도 되었습니다. 사원 이름: " + unauthorizeEntered.getUserName() + "무단 입장 시간: " + unauthorizeEntered.getEnteringAt());
         repository().save(warning);
 
         WarningSituationRecorded warningSituationRecorded = new WarningSituationRecorded(warning);
         warningSituationRecorded.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
         
-        // if unauthorizeEntered.userId exists, use it
-        
-        // ObjectMapper mapper = new ObjectMapper();
-        // Map<Long, Object> storeMap = mapper.convertValue(unauthorizeEntered.getUserId(), Map.class);
-
-        repository().findById(unauthorizeEntered.get???()).ifPresent(warning->{
-            
-            warning // do something
-            repository().save(warning);
-
-            WarningSituationRecorded warningSituationRecorded = new WarningSituationRecorded(warning);
-            warningSituationRecorded.publishAfterCommit();
-
-         });
-        */
-
     }
     //>>> Clean Arch / Port Method
 

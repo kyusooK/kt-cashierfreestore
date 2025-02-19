@@ -44,29 +44,11 @@ public class StoreUsing {
 
     //<<< Clean Arch / Port Method
     public static void recordEnteringHistory(StoreEntered storeEntered) {
-        //implement business logic here:
 
-        /** Example 1:  new item 
         StoreUsing storeUsing = new StoreUsing();
         repository().save(storeUsing);
 
-        */
-
-        /** Example 2:  finding and process
         
-        // if storeEntered.userId exists, use it
-        
-        // ObjectMapper mapper = new ObjectMapper();
-        // Map<Long, Object> storeMap = mapper.convertValue(storeEntered.getUserId(), Map.class);
-
-        repository().findById(storeEntered.get???()).ifPresent(storeUsing->{
-            
-            storeUsing // do something
-            repository().save(storeUsing);
-
-
-         });
-        */
 
     }
 
