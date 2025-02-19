@@ -16,8 +16,8 @@ import {
         />
         <VerticalNavLink
             :item="{
-                title: '사용자조회 View',
-                to: '/getUsers/view',
+                title: '사용자조회',
+                to: '/getUsers',
             }"
         />
         <VerticalNavSectionTitle :item="{ heading: '매장' }" />

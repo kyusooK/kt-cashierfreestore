@@ -1,7 +1,6 @@
 package cashierfreestore.domain;
 
 import cashierfreestore.domain.StoreAuthorityRegistered;
-import cashierfreestore.domain.이상감지됨;
 import cashierfreestore.StoreApplication;
 import javax.persistence.*;
 import java.util.List;
@@ -73,8 +72,8 @@ public class Store  {
         
         StoreEntered storeEntered = new StoreEntered(this);
         storeEntered.publishAfterCommit();
-        StoreEntered storeEntered = new StoreEntered(this);
-        storeEntered.publishAfterCommit();
+        UnauthorizeEntered unauthorizeEntered = new UnauthorizeEntered(this);
+        unauthorizeEntered.publishAfterCommit();
     }
 //>>> Clean Arch / Port Method
 //<<< Clean Arch / Port Method

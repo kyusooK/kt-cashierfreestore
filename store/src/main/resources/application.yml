@@ -48,6 +48,7 @@ logging:
 api:
   url: 
     store: localhost:8083 
+    reservation: localhost:0 
     
 
 server:
@@ -88,5 +89,6 @@ spring:
 api:
   url: 
     store: store:8080 
+    reservation: reservation:8080 
     
 
