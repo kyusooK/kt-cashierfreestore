@@ -30,7 +30,7 @@ public class Warning {
     }
 
     //<<< Clean Arch / Port Method
-    public static void recordWarningSituation(이상감지됨 이상감지됨) {
+    public static void recordWarningSituation(AnomalyDetected anomalyDetected) {
         //implement business logic here:
 
         /** Example 1:  new item 
@@ -43,12 +43,12 @@ public class Warning {
 
         /** Example 2:  finding and process
         
-        // if 이상감지됨.userId exists, use it
+        // if anomalyDetected.userId exists, use it
         
         // ObjectMapper mapper = new ObjectMapper();
-        // Map<Long, Object> storeMap = mapper.convertValue(이상감지됨.getUserId(), Map.class);
+        // Map<Long, Object> storeMap = mapper.convertValue(anomalyDetected.getUserId(), Map.class);
 
-        repository().findById(이상감지됨.get???()).ifPresent(warning->{
+        repository().findById(anomalyDetected.get???()).ifPresent(warning->{
             
             warning // do something
             repository().save(warning);

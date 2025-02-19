@@ -1,7 +1,7 @@
 package cashierfreestore.domain;
 
 import cashierfreestore.domain.StoreAuthorityRegistered;
-import cashierfreestore.domain.이상감지됨;
+import cashierfreestore.domain.AnomalyDetected;
 import cashierfreestore.StoreApplication;
 import javax.persistence.*;
 import java.util.List;
