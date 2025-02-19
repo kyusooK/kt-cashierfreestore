@@ -27,14 +27,6 @@ public class StoreUsing {
     @Embedded
     private StoreId storeId;
 
-    @PostPersist
-    public void onPostPersist() {
-        EnteringHistoryRecorded enteringHistoryRecorded = new EnteringHistoryRecorded(
-            this
-        );
-        enteringHistoryRecorded.publishAfterCommit();
-    }
-
     public static StoreUsingRepository repository() {
         StoreUsingRepository storeUsingRepository = RecordingApplication.applicationContext.getBean(
             StoreUsingRepository.class
@@ -50,6 +42,8 @@ public class StoreUsing {
         StoreUsing storeUsing = new StoreUsing();
         repository().save(storeUsing);
 
+        EnteringHistoryRecorded enteringHistoryRecorded = new EnteringHistoryRecorded(storeUsing);
+        enteringHistoryRecorded.publishAfterCommit();
         */
 
         /** Example 2:  finding and process
@@ -64,6 +58,8 @@ public class StoreUsing {
             storeUsing // do something
             repository().save(storeUsing);
 
+            EnteringHistoryRecorded enteringHistoryRecorded = new EnteringHistoryRecorded(storeUsing);
+            enteringHistoryRecorded.publishAfterCommit();
 
          });
         */
@@ -79,6 +75,8 @@ public class StoreUsing {
         StoreUsing storeUsing = new StoreUsing();
         repository().save(storeUsing);
 
+        EnteringHistoryRecorded enteringHistoryRecorded = new EnteringHistoryRecorded(storeUsing);
+        enteringHistoryRecorded.publishAfterCommit();
         */
 
         /** Example 2:  finding and process
@@ -93,6 +91,8 @@ public class StoreUsing {
             storeUsing // do something
             repository().save(storeUsing);
 
+            EnteringHistoryRecorded enteringHistoryRecorded = new EnteringHistoryRecorded(storeUsing);
+            enteringHistoryRecorded.publishAfterCommit();
 
          });
         */
