@@ -63,7 +63,6 @@ public class User {
             userAuthorityUpdated.publishAfterCommit();
 
          });
-        */
 
     }
     //>>> Clean Arch / Port Method
