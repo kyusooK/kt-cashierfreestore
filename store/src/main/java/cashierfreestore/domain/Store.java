@@ -87,6 +87,14 @@ public class Store  {
         
         //implement business logic here:
         
+        //Following code causes dependency to external APIs
+        // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
+
+        cashierfreestore.external.Reservation reservation = new cashierfreestore.external.Reservation();
+        // mappings goes here
+        StoreApplication.applicationContext.getBean(cashierfreestore.external.ReservationService.class)
+            .createReservation(reservation);
+
 
         cashierfreestore.external.StoreQuery storeQuery = new cashierfreestore.external.StoreQuery();
         // storeQuery.set??()        
@@ -96,8 +104,8 @@ public class Store  {
 
         StoreEntered storeEntered = new StoreEntered(this);
         storeEntered.publishAfterCommit();
-        StoreEntered storeEntered = new StoreEntered(this);
-        storeEntered.publishAfterCommit();
+        UnauthorizeEntered unauthorizeEntered = new UnauthorizeEntered(this);
+        unauthorizeEntered.publishAfterCommit();
     }
 //>>> Clean Arch / Port Method
 //<<< Clean Arch / Port Method

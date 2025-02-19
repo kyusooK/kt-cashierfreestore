@@ -63,7 +63,9 @@ public class Warning {
 
     //>>> Clean Arch / Port Method
     //<<< Clean Arch / Port Method
-    public static void recordWarningSituation(StoreEntered storeEntered) {
+    public static void recordWarningSituation(
+        UnauthorizeEntered unauthorizeEntered
+    ) {
         //implement business logic here:
 
         /** Example 1:  new item 
@@ -76,12 +78,12 @@ public class Warning {
 
         /** Example 2:  finding and process
         
-        // if storeEntered.userId exists, use it
+        // if unauthorizeEntered.userId exists, use it
         
         // ObjectMapper mapper = new ObjectMapper();
-        // Map<Long, Object> storeMap = mapper.convertValue(storeEntered.getUserId(), Map.class);
+        // Map<Long, Object> storeMap = mapper.convertValue(unauthorizeEntered.getUserId(), Map.class);
 
-        repository().findById(storeEntered.get???()).ifPresent(warning->{
+        repository().findById(unauthorizeEntered.get???()).ifPresent(warning->{
             
             warning // do something
             repository().save(warning);

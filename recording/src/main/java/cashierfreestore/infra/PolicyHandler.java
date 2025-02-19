@@ -65,15 +65,15 @@ public class PolicyHandler {
 
     @StreamListener(
         value = KafkaProcessor.INPUT,
-        condition = "headers['type']=='StoreEntered'"
+        condition = "headers['type']=='UnauthorizeEntered'"
     )
-    public void wheneverStoreEntered_RecordWarningSituation(
-        @Payload StoreEntered storeEntered
+    public void wheneverUnauthorizeEntered_RecordWarningSituation(
+        @Payload UnauthorizeEntered unauthorizeEntered
     ) {
-        StoreEntered event = storeEntered;
+        UnauthorizeEntered event = unauthorizeEntered;
         System.out.println(
             "\n\n##### listener RecordWarningSituation : " +
-            storeEntered +
+            unauthorizeEntered +
             "\n\n"
         );
 

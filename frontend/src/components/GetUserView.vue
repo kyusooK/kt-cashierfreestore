@@ -28,7 +28,7 @@ export default {
 
         onMounted(async () => {
             try {
-                const response = await axios.get(axios.fixUrl('/getUsers'));
+                const response = await axios.get('/getUsers');
                 const data = response.data._embedded.getUsers;
                 data.forEach(obj => {
                     obj.id = obj._links.self.href.split("/").pop();
