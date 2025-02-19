@@ -38,62 +38,32 @@ public class StoreUsing {
     public static void recordEnteringHistory(StoreEntered storeEntered) {
 
         StoreUsing storeUsing = new StoreUsing();
+        storeUsing.setEnteringDate(storeEntered.getEnteringAt());
+        storeUsing.setStoreId(new StoreId(storeEntered.getId()));
         repository().save(storeUsing);
 
         EnteringHistoryRecorded enteringHistoryRecorded = new EnteringHistoryRecorded(storeUsing);
         enteringHistoryRecorded.publishAfterCommit();
-        */
 
-        /** Example 2:  finding and process
-        
-        // if storeEntered.userId exists, use it
-        
-        // ObjectMapper mapper = new ObjectMapper();
-        // Map<Long, Object> storeMap = mapper.convertValue(storeEntered.getUserId(), Map.class);
-
-        repository().findById(storeEntered.get???()).ifPresent(storeUsing->{
-            
-            storeUsing // do something
-            repository().save(storeUsing);
-
-            EnteringHistoryRecorded enteringHistoryRecorded = new EnteringHistoryRecorded(storeUsing);
-            enteringHistoryRecorded.publishAfterCommit();
-
-         });
-        */
 
     }
 
-    //>>> Clean Arch / Port Method
     //<<< Clean Arch / Port Method
     public static void recordEnteringHistory(StoreExited storeExited) {
-        //implement business logic here:
-
-        /** Example 1:  new item 
-        StoreUsing storeUsing = new StoreUsing();
-        repository().save(storeUsing);
-
-        EnteringHistoryRecorded enteringHistoryRecorded = new EnteringHistoryRecorded(storeUsing);
-        enteringHistoryRecorded.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
         
-        // if storeExited.userId exists, use it
         
-        // ObjectMapper mapper = new ObjectMapper();
-        // Map<Long, Object> storeMap = mapper.convertValue(storeExited.getUserId(), Map.class);
+        ObjectMapper mapper = new ObjectMapper();
+        Map<Long, Object> storeMap = mapper.convertValue(storeExited.getId(), Map.class);
 
-        repository().findById(storeExited.get???()).ifPresent(storeUsing->{
+        repository().findById(Long.valueOf(storeMap.get("id").toString())).ifPresent(storeUsing->{
             
-            storeUsing // do something
+            storeUsing.setExitDate(storeExited.getExitAt());
             repository().save(storeUsing);
 
             EnteringHistoryRecorded enteringHistoryRecorded = new EnteringHistoryRecorded(storeUsing);
             enteringHistoryRecorded.publishAfterCommit();
 
          });
-        */
 
     }
     //>>> Clean Arch / Port Method
