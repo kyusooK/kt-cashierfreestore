@@ -11,46 +11,46 @@ import {
         <VerticalNavLink
             :item="{
                 title: '사용자',
-                to: '/users',
+                to: '/users/users',
             }"
         />
         <VerticalNavLink
             :item="{
                 title: '사용자조회',
-                to: '/getUsers',
+                to: '/users/getUsers',
             }"
         />
         <VerticalNavSectionTitle :item="{ heading: '매장' }" />
         <VerticalNavLink
             :item="{
                 title: '매장',
-                to: '/stores',
+                to: '/stores/stores',
             }"
         />
         <VerticalNavSectionTitle :item="{ heading: '인증' }" />
         <VerticalNavLink
             :item="{
                 title: '권한',
-                to: '/authorities',
+                to: '/authorities/authorities',
             }"
         />
         <VerticalNavSectionTitle :item="{ heading: '기록' }" />
         <VerticalNavLink
             :item="{
                 title: '매장이용기록',
-                to: '/storeUsings',
+                to: '/recordings/storeUsings',
             }"
         />
         <VerticalNavLink
             :item="{
                 title: '권한변경기록',
-                to: '/authorityChanings',
+                to: '/recordings/authorityChanings',
             }"
         />
         <VerticalNavLink
             :item="{
                 title: '경고상황기록',
-                to: '/warnings',
+                to: '/recordings/warnings',
             }"
         />
     </ul>

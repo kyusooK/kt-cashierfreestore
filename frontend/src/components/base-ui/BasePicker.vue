@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-combobox
+        <v-select
             :items="filteredList"
             :item-text="nameField"
             :item-value="idField"
@@ -10,13 +10,13 @@
             @change="select"
             solo
         >
-        </v-combobox>
+        </v-select>
     </div>
 </template>
 
 <script>
 import BaseRepository from '../repository/BaseRepository';
-import axios from '@axios'
+import axios from 'axios'
 
 import _ from'lodash';
 

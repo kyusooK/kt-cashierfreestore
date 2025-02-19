@@ -4,7 +4,7 @@
 
 <script>
 import BaseRepository from '../repository/BaseRepository'
-import axios from '@axios'
+import axios from 'axios'
 
 export default {
     name: 'BaseEntity',
