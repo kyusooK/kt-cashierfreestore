@@ -20,9 +20,9 @@ public class StoreUsing {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String enteringDate;
+    private Date enteringDate;
 
-    private String exitDate;
+    private Date exitDate;
 
     @Embedded
     private StoreId storeId;
