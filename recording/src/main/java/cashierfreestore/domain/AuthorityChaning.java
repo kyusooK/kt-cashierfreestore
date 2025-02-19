@@ -36,30 +36,13 @@ public class AuthorityChaning {
     public static void recordChangedAuthority(
         AuthorityUpdated authorityUpdated
     ) {
-        //implement business logic here:
-
-        /** Example 1:  new item 
         AuthorityChaning authorityChaning = new AuthorityChaning();
+
+        authorityChaning.setChangingAuth(authorityUpdated.getUserName() + "의 매장 이용 가능 시간이 변경되었습니다. 변경내역: " + authorityUpdated.getAvailableTime());
         repository().save(authorityChaning);
 
         ChangedAuthorityRecorded changedAuthorityRecorded = new ChangedAuthorityRecorded(authorityChaning);
         changedAuthorityRecorded.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
-        
-
-        repository().findById(authorityUpdated.get???()).ifPresent(authorityChaning->{
-            
-            authorityChaning // do something
-            repository().save(authorityChaning);
-
-            ChangedAuthorityRecorded changedAuthorityRecorded = new ChangedAuthorityRecorded(authorityChaning);
-            changedAuthorityRecorded.publishAfterCommit();
-
-         });
-        */
-
     }
     //>>> Clean Arch / Port Method
 

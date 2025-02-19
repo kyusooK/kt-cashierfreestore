@@ -31,33 +31,10 @@ public class Warning {
 
     //<<< Clean Arch / Port Method
     public static void recordWarningSituation(이상감지됨 이상감지됨) {
-        //implement business logic here:
-
-        /** Example 1:  new item 
+        
         Warning warning = new Warning();
+        warning.setWarningRecord("cctv에 의해 이상상황이 감지되었습니다. cctv를 확인 바랍니다.");
         repository().save(warning);
-
-        WarningSituationRecorded warningSituationRecorded = new WarningSituationRecorded(warning);
-        warningSituationRecorded.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
-        
-        // if 이상감지됨.userId exists, use it
-        
-        // ObjectMapper mapper = new ObjectMapper();
-        // Map<Long, Object> storeMap = mapper.convertValue(이상감지됨.getUserId(), Map.class);
-
-        repository().findById(이상감지됨.get???()).ifPresent(warning->{
-            
-            warning // do something
-            repository().save(warning);
-
-            WarningSituationRecorded warningSituationRecorded = new WarningSituationRecorded(warning);
-            warningSituationRecorded.publishAfterCommit();
-
-         });
-        */
 
     }
 
