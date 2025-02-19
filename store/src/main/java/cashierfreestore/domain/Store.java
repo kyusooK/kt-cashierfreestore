@@ -71,9 +71,8 @@ public class Store  {
         Date enteringDate = new Date();
         repository().findById(this.getId()).ifPresent(store ->{
 
-            if(this.getEmployeeIdCard() == enterStoreCommand.getEmployeeIdCard()){
-                
-                if(this.getAvailableTime() == "상시 가능"){
+            if(this.getEmployeeIdCard().equals(enterStoreCommand.getEmployeeIdCard())){
+                if(this.getAvailableTime().equals("상시 가능")){
                     this.setEnterStatus(EnterStatus.ENTERED);
                     this.setEnteringAt(enteringDate);
                     this.setExitAt(null);
@@ -98,6 +97,8 @@ public class Store  {
                         StoreApplication.applicationContext.getBean(cashierfreestore.external.ReservationService.class)
                             .createReservation(reservation);
 
+                        this.setEnteringAt(enteringDate);
+
                         UnauthorizeEntered unauthorizeEntered = new UnauthorizeEntered(this);
                         unauthorizeEntered.publishAfterCommit();
                     }else{
@@ -112,9 +113,6 @@ public class Store  {
                 }
             }
         });
-        
-        UnauthorizeEntered unauthorizeEntered = new UnauthorizeEntered(this);
-        unauthorizeEntered.publishAfterCommit();
     }
 //>>> Clean Arch / Port Method
 
@@ -123,6 +121,7 @@ public class Store  {
         repository().findById(this.getId()).ifPresent(store ->{
             
             this.setExitAt(exitDate);
+            this.setEnterStatus(EnterStatus.EXITED);
 
             StoreExited storeExited = new StoreExited(this);
             storeExited.publishAfterCommit();

@@ -49,7 +49,7 @@ public class Warning {
         //implement business logic here:
 
         Warning warning = new Warning();
-        warning.setWarningRecord("무단 입장이 시도 되었습니다. 사원 이름: " + unauthorizeEntered.getUserName() + "무단 입장 시간: " + unauthorizeEntered.getEnteringAt());
+        warning.setWarningRecord("무단 입장이 시도 되었습니다. 사원 이름: " + unauthorizeEntered.getUserName() + " 무단 입장 시간: " + unauthorizeEntered.getEnteringAt());
         repository().save(warning);
 
         WarningSituationRecorded warningSituationRecorded = new WarningSituationRecorded(warning);

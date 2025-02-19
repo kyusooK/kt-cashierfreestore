@@ -48,7 +48,7 @@ logging:
 api:
   url: 
     store: localhost:8083 
-    reservation: localhost:0 
+    reservation: localhost:8072
     
 
 server:

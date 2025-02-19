@@ -37,11 +37,6 @@ public class User {
     public void onPostPersist() {
         UserRegistered userRegistered = new UserRegistered(this);
         userRegistered.publishAfterCommit();
-
-        UserAuthorityUpdated userAuthorityUpdated = new UserAuthorityUpdated(
-            this
-        );
-        userAuthorityUpdated.publishAfterCommit();
     }
 
     public static UserRepository repository() {
