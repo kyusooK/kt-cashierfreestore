@@ -32,7 +32,10 @@
                         <tr v-for="(val, idx) in value" :key="val" @click="changeSelectedRow(val)" :style="val === selectedRow ? 'background-color: #f0f3ff;':''">
                             <td class="font-semibold">{{ idx + 1 }}</td>
                             <td class="whitespace-nowrap" label="경고기록">{{ val.warningRecord }}</td>
-                            <Icon style="margin-top: 15px;" icon="mi:delete" @click="deleteRow(val)" />
+                            <v-row class="ma-0 pa-4 align-center">
+                                <v-spacer></v-spacer>
+                                <Icon style="cursor: pointer;" icon="mi:delete" @click="deleteRow(val)" />
+                            </v-row>
                         </tr>
                     </tbody>
                 </v-table>

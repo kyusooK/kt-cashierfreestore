@@ -14,12 +14,6 @@ import {
                 to: '/users/users',
             }"
         />
-        <VerticalNavLink
-            :item="{
-                title: '사용자조회',
-                to: '/users/getUsers',
-            }"
-        />
         <VerticalNavSectionTitle :item="{ heading: '매장' }" />
         <VerticalNavLink
             :item="{

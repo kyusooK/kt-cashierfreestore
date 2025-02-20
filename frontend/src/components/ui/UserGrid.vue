@@ -19,7 +19,6 @@
                     <v-icon small>mdi-pencil</v-icon>수정
                 </v-btn>
             </div>
-            <GetUser @search="search" style="margin-bottom: 10px; background-color: #ffffff;"></GetUser>
             <div class="mb-5 text-lg font-bold"></div>
             <div class="table-responsive">
                 <v-table>
@@ -43,7 +42,10 @@
                             <td class="whitespace-nowrap" label="직급">{{ val.rank }}</td>
                             <td class="whitespace-nowrap" label="부서">{{ val.department }}</td>
                             <td class="whitespace-nowrap" label="이용가능시간">{{ val.availableTime }}</td>
-                            <Icon style="margin-top: 15px;" icon="mi:delete" @click="deleteRow(val)" />
+                            <v-row class="ma-0 pa-4 align-center">
+                                <v-spacer></v-spacer>
+                                <Icon style="cursor: pointer;" icon="mi:delete" @click="deleteRow(val)" />
+                            </v-row>
                         </tr>
                     </tbody>
                 </v-table>

@@ -37,7 +37,10 @@
                             <td class="whitespace-nowrap" label="권한">
                                 <AuthorityId :editMode="editMode" v-model="val.authorityId"></AuthorityId>
                             </td>
-                            <Icon style="margin-top: 15px;" icon="mi:delete" @click="deleteRow(val)" />
+                            <v-row class="ma-0 pa-4 align-center">
+                                <v-spacer></v-spacer>
+                                <Icon style="cursor: pointer;" icon="mi:delete" @click="deleteRow(val)" />
+                            </v-row>
                         </tr>
                     </tbody>
                 </v-table>

@@ -34,31 +34,27 @@ export default {
     cards: [
       {
           text: "사용자",
-          link: "/users",
-      },
-      {
-          text: "사용자조회",
-          link: "/getUsers",
+          link: "/users/users",
       },
       {
           text: "매장",
-          link: "/stores",
+          link: "/stores/stores",
       },
       {
           text: "권한",
-          link: "/authorities",
+          link: "/authorities/authorities",
       },
       {
           text: "매장이용기록",
-          link: "/storeUsings",
+          link: "/recordings/storeUsings",
       },
       {
           text: "권한변경기록",
-          link: "/authorityChanings",
+          link: "/recordings/authorityChanings",
       },
       {
           text: "경고상황기록",
-          link: "/warnings",
+          link: "/recordings/warnings",
       },
     ],
   }),

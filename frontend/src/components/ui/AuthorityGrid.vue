@@ -41,7 +41,10 @@
                             <td class="whitespace-nowrap" label="사용자 직급">{{ val.rank }}</td>
                             <td class="whitespace-nowrap" label="사용자 부서">{{ val.department }}</td>
                             <td class="whitespace-nowrap" label="이용가능 시간">{{ val.availableTime }}</td>
-                            <Icon style="margin-top: 15px;" icon="mi:delete" @click="deleteRow(val)" />
+                            <v-row class="ma-0 pa-4 align-center">
+                                <v-spacer></v-spacer>
+                                <Icon style="cursor: pointer;" icon="mi:delete" @click="deleteRow(val)" />
+                            </v-row>
                         </tr>
                     </tbody>
                 </v-table>
