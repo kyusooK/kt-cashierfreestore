@@ -1,13 +1,14 @@
 <template>
-    <div style="margin: -10px -15px 0 -15px;">
+    <div>
+        <v-card-title>
+            EnterStatus
+        </v-card-title>
         <v-card-text>
-            <div class="label-title"></div>
             <div v-if="editMode">
                 <v-select
-                    v-model="value"
-                    :label="label"
-                    :items="selections"
-                    solo
+                        v-model="newValue"
+                        :label="'name'"
+                        :items="enterStatusList"
                 ></v-select>
             </div>
             <div v-else>
@@ -18,33 +19,38 @@
 </template>
 
 <script>
-import BaseEntity from './base-ui/BaseEntity.vue';
-
-export default {
-    name: 'EnterStatus',
-    mixins:[BaseEntity],
-    components:{},
-    props: {
-        modelValue: Object,
-        label: String
-    },
-    data: () => ({
-        selections : ["ENTERED","EXITED",],
-    }),
-    async created() {
-        this.value = this.modelValue
-        if(!this.value) {
-            this.value = [];
-        }
-    },
-    watch: {
-        value:{
-            handler: function(){
-                this.$emit("update:modelValue", this.value)
+    export default {
+        name: 'EnterStatus',
+        components:{},
+        props: {
+            value: [Object, String, Number, Boolean, Array],
+            editMode: Boolean,
+            isNew: Boolean,
+            offline: Boolean,
+            inList: Boolean,
+            label: String,
+        },
+        data: () => ({
+            enterStatusList : [ "ENTERED",  "EXITED", ],
+            newValue: '',
+        }),
+        async created() {
+            if(!this.value) {
+                this.newValue = this.enterStatusList[0];
+            } else {
+                this.newValue = this.value;
             }
+        },
+        watch: {
+            value(val) {
+                this.$emit('input', val);
+            },
+            newValue(val) {
+                this.$emit('input', val);
+            },
+        },
+        methods: {
         }
-    },
-    methods: {
     }
-}
 </script>
+

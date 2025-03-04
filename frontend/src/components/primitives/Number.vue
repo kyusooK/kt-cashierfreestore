@@ -1,17 +1,16 @@
 <template>
     <div>
         <div v-if="editMode">
-            <div class="label-title">{{label}}</div>
-            <v-text-field
-                v-bind="$attrs"
-                type="number"
-                label="숫자를 입력하세요."
-                v-model="value"
+            <v-text-field v-model="value"
+                :label="label" 
                 @change="change"
+                type="number"
+                outlined
+                dense
             />
         </div>
         <div v-else>
-            {{value}}
+            {{label}} :  {{value}}
         </div>
     </div>
 </template>
@@ -20,22 +19,16 @@
     export default {
         name: 'Number',
         props: {
-            modelValue:{
+            value:{
                 type: Number,
                 default: 0
             },
             editMode: Boolean,
-            label: String,
-        },
-        data: () => ({
-            value: null,
-        }),
-        created(){
-            this.value = this.modelValue
+            label: String
         },
         methods:{
             change(){
-                this.$emit("update:modelValue", Number(this.value));
+                this.$emit("input", Number(this.value));
             }
         }
     }

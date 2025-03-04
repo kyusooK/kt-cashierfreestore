@@ -1,82 +1,76 @@
 <template>
-    <div v-if="editMode">
-        {{ label }}
-        
-        <v-text-field
-            v-bind="attrs"
-            v-model="filteredDate"
-            prepend-icon="mdi-calendar"
-            readonly
-            @click="openCalendar"
-        ></v-text-field>
-        <v-col>
-            <DatePicker v-if="calendarMode" v-model="date" style=" margin-top: 10px; margin-left: 40px;"/>
-            <v-btn v-if="calendarMode" @click="closeCalendar" style="position: relative; z-index: 1; bottom: 4px; right: 12.5%; vertical-align: bottom;" variant="text" color="black">완료</v-btn>
-        </v-col>
+    <div>
+        <div v-if="editMode">
+            <v-menu
+                ref="menu"
+                v-model="menu"
+                :close-on-content-click="false"
+                :return-value.sync="date"
+                transition="scale-transition"
+                offset-y
+                min-width="auto"
+            >
+                <template v-slot:activator="{ on, attrs }">
+                    <v-text-field
+                            v-model="date"
+                            :label="label"
+                            prepend-icon="mdi-calendar"
+                            readonly
+                            v-bind="attrs"
+                            v-on="on"
+                    ></v-text-field>
+                </template>
+                <v-date-picker
+                        v-model="date"
+                        no-title
+                        scrollable
+                >
+                    <v-spacer></v-spacer>
+                    <v-btn text color="primary" @click="menu = false">
+                        Cancel
+                    </v-btn>
+                    <v-btn text color="primary" @click="$refs.menu.save(date)">
+                        OK
+                    </v-btn>
+                </v-date-picker>
+            </v-menu>
+        </div>
+        <div v-else>
+            {{label}} :  {{value}}
+        </div>
     </div>
-    <div v-else>
-        {{ label }} : {{ formattedDate }}
-    </div>
-
 </template>
 
-<script> 
-import { Calendar, DatePicker } from 'v-calendar';
-
-export default {
-    name: 'Date',
-    components:{
-        Calendar,
-        DatePicker,
-    },
-    props: {
-        modelValue: Object,
-        editMode: Boolean,
-        label: String,
-    },
-    data: () => ({
-        date: new Date(),
-        formattedDate: null,
-        calendarMode: false,
-    }),
-    created() {
-        this.date = this.modelValue
-        if(!this.date) {
-            this.date = new Date()
-        }
-    },
-    computed:{
-        filteredDate(){
-            if(this.date){
-                this.formattedDate = new Date(this.date).toISOString().substr(0, 10);
-                return this.formattedDate;            
+<script>  
+    export default {
+        name: 'Date',
+        components:{
+        },
+        props: {
+            value: Object,
+            editMode: Boolean,
+            label: String
+        },
+        data: () => ({
+            menu: false,
+            date: new Date().toISOString().substr(0, 10),
+        }),
+        created() {
+            if(!this.value) {
+                this.value = this.date;
             }
-            return null;
-        }
-    },
-    mounted() {
-    },
-    watch: {
-        formattedDate: {
-            handler() {
+        },
+        watch: {
+            date() {
+                const fullDate = new Date(this.date + 'T00:00:00.000Z').toISOString();
+                this.value = fullDate
                 this.change();
-            },
+            }
         },
-    },
-    methods:{
-        change(){
-            this.$emit("update:modelValue", this.formattedDate);
-        },
-        setDate(date){
-            this.$refs.menu.save(date)
-            this.$emit("update:modelValue", date);
-        },
-        openCalendar(){
-            this.calendarMode = true
-        },
-        closeCalendar(){
-            this.calendarMode = false;
+        methods:{
+            change(){
+                this.$emit("input", this.value);
+            }
         }
     }
-}
 </script>
