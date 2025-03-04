@@ -52,8 +52,9 @@ public class Store  {
     //<<< Clean Arch / Port Method
     public static void registerStoreAuthority(UserAuthorityUpdated userAuthorityUpdated){
         
+        //사용자 권한 수정 이벤트 발행시 등록된 정보와 매칭하여 매장 정보 등록 
         Store store = new Store();
-        // store.setUserId()
+        store.setUserId(new UserId(userAuthorityUpdated.getId()));
         store.setUserName(userAuthorityUpdated.getUserName());
         store.setEmployeeIdCard(userAuthorityUpdated.getEmployeeIdCard());
         store.setAvailableTime(userAuthorityUpdated.getAvailableTime());
