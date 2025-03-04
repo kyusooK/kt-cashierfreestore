@@ -24,7 +24,7 @@
             <Date label="이용종료시간" v-model="value.availableEndAt" :editMode="editMode" :inputUI="''"/>
             <UserId offline label="userId" v-model="value.userId" :editMode="editMode" @change="change"/>
             <EnterStatus offline label="출입상태" v-model="value.enterStatus" :editMode="editMode" @change="change"/>
-            <String label="이용가능시간" v-model="value.availableTime" :editMode="editMode" :inputUI="''"/>
+            <String v-if="!editMode" label="이용가능시간" v-model="value.availableTime" :editMode="editMode" :inputUI="''"/>
         </v-card-text>
 
         <v-card-actions style="background-color: white;">

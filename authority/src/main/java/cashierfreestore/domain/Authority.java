@@ -53,14 +53,10 @@ public class Authority {
     //<<< Clean Arch / Port Method
     public void updateAuthority() {
         repository().findById(this.getId()).ifPresent(authority->{
-            if(authority.getDepartment() == "보안" || authority.getDepartment() == "마케팅" || authority.getDepartment() == "재고"){
+            if(authority.getDepartment().equals("보안") || authority.getDepartment().equals("마케팅") || authority.getDepartment().equals("재고") || authority.getRank().equals("대표") || authority.getRank().equals("이사")){
                 authority.setAvailableTime("상시 가능");
             }else{
-                if(authority.getRank() == "대표" || authority.getRank() == "이사"){
-                    authority.setAvailableTime("상시 가능");
-                }else{
-                    authority.setAvailableTime("18:00");
-                }
+                authority.setAvailableTime("18:00");
             }
         });
 

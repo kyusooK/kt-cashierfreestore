@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: recording
-          image: "username/recording:latest"
+          image: "user11registry.azurecr.io/recording:0601"
           ports:
             - containerPort: 8080
           readinessProbe:

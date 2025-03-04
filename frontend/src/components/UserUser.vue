@@ -21,7 +21,7 @@
             <String label="사원증" v-model="value.employeeIdCard" :editMode="editMode" :inputUI="''"/>
             <String label="직급" v-model="value.rank" :editMode="editMode" :inputUI="''"/>
             <String label="부서" v-model="value.department" :editMode="editMode" :inputUI="''"/>
-            <String label="이용가능시간" v-model="value.availableTime" :editMode="editMode" :inputUI="''"/>
+            <String v-if="!editMode" label="이용가능시간" v-model="value.availableTime" :editMode="editMode" :inputUI="''"/>
         </v-card-text>
 
         <v-card-actions style="background-color: white;">
