@@ -100,8 +100,6 @@
                     >
                         경고상황기록
                     </v-list-item>
-
-
                 </v-list>
             </v-navigation-drawer>
         </div>
@@ -111,15 +109,15 @@
                 <router-view></router-view>
             </v-container>
             <v-container style="padding:0px;" v-else fluid>
-                <div style="width:100%; margin:0px 0px 20px 0px; position: relative;">
-                    <v-img style="width:100%; height:300px;"
-                        src=""
+                <div style="width:100%; position: relative;">
+                    <v-img style="width:100%; height:200px;"
+                        src="image/main.png"
                     ></v-img>
                     <div class="App-main-text-overlap"></div>
                     <div class="App-sub-text-overlap"></div>
                 </div>
                 <v-row class="pa-0 ma-0">
-                    <v-col cols="4" class="pa-0 pa-0" v-for="(aggregate, index) in aggregate" :key="index">
+                    <v-col cols="12" lg="3" md="4" sm="6" class="pa-0 pa-0" v-for="(aggregate, index) in aggregate" :key="index">
                         <div class="pa-4">
                             <v-card
                                 :key="aggregate.key"
@@ -162,42 +160,42 @@ export default {
                 description: 'User을 관리하는 화면입니다.', 
                 key: 'users', 
                 route: '/users/users',
-                ImageUrl: '',
+                ImageUrl: '/image/person.png',
             },
             { 
                 title: '매장', 
                 description: 'Store을 관리하는 화면입니다.', 
                 key: 'stores', 
                 route: '/stores/stores',
-                ImageUrl: '',
+                ImageUrl: '/image/store.png',
             },
             { 
                 title: '권한', 
                 description: 'Authority을 관리하는 화면입니다.', 
                 key: 'authorities', 
                 route: '/authorities/authorities',
-                ImageUrl: '',
+                ImageUrl: '/image/lock.png',
             },
             { 
                 title: '매장이용기록', 
                 description: 'StoreUsing을 관리하는 화면입니다.', 
                 key: 'storeUsings', 
                 route: '/recordings/storeUsings',
-                ImageUrl: '',
+                ImageUrl: '/image/activities.png',
             },
             { 
                 title: '권한변경기록', 
                 description: 'AuthorityChaning을 관리하는 화면입니다.', 
                 key: 'authorityChanings', 
                 route: '/recordings/authorityChanings',
-                ImageUrl: '',
+                ImageUrl: '/image/insurance.png',
             },
             { 
                 title: '경고상황기록', 
                 description: 'Warning을 관리하는 화면입니다.', 
                 key: 'warnings', 
                 route: '/recordings/warnings',
-                ImageUrl: '',
+                ImageUrl: '/image/caution.png',
             },
             
         ],

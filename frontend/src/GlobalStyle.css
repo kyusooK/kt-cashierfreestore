@@ -43,6 +43,14 @@
     text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white !important;
 }
 
+.main-card:hover {
+  background-color:#1976D2;
+  cursor: pointer;
+}
+
+.main-card:hover .main-card-title {
+  color:white;
+}
 /* 메인 페이지 카드 뒤집기 스타일 */
 /* .flip-card {
   perspective: 1000px !important;
